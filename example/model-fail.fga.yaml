@@ -2,19 +2,16 @@ name: FolderBox
 
 model_file: ./model.fga
 
-tuples: # global tuples that would apply to all tests
-  - user: folder:5
-    relation: parent
-    object: folder:product-2021
-  - user: folder:product-2021
-    relation: parent
-    object: folder:product-2021Q1
-
-
 tests:
   - name: "folder-document-access"
     description: ""
     tuples: # tuples in tests are appended to the global tuples and do not replace them
+      - user: folder:5
+        relation: parent
+        object: folder:product-2021
+      - user: folder:product-2021
+        relation: parent
+        object: folder:product-2021Q1
       - user: user:anne
         relation: owner
         object: folder:product
