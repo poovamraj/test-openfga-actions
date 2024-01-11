@@ -7,20 +7,20 @@ jobs:
   test:
     name: Deploy Authorization Model
     runs-on: ubuntu-latest
-      - name: Run OpenFGA Server
-        uses: ./run-server
-      - name: OpenFGA Model Deploy Action
-        uses: openfga/action-openfga-deploy@v0.1.0
-          with:
-            api-url: http://localhost:8080
-            api-token: key1
-            store-id: ${{ env.STORE_ID }}
-            model-file-path: ./example/model.fga
-      - name: OpenFGA Model Deploy Action
-        uses: openfga/action-openfga-deploy@v0.1.0
+    - name: Run OpenFGA Server
+      uses: ./run-server
+    - name: OpenFGA Model Deploy Action
+      uses: openfga/action-openfga-deploy@v0.1.0
         with:
           api-url: http://localhost:8080
           api-token: key1
           store-id: ${{ env.STORE_ID }}
-          format: json
-          model: '{\"schema_version\":\"1.1\",\"type_definitions\":\[\{\"type\":\"user\"\},\{\"type\":\"document\",\"relations\":\{\"reader\":\{\"this\":\{\}\},\"writer\":\{\"this\":\{\}\},\"owner\":\{\"this\":\{\}\}\},\"metadata\":\{\"relations\":\{\"reader\":\{\"directly_related_user_types\":\[\{\"type\":\"user\"\}\]\},\"writer\":\{\"directly_related_user_types\":\[\{\"type\":\"user\"\}\]\},\"owner\":\{\"directly_related_user_types\":\[\{\"type\":\"user\"\}\]\}\}\}\}\]\}'
+          model-file-path: ./example/model.fga
+    - name: OpenFGA Model Deploy Action
+      uses: openfga/action-openfga-deploy@v0.1.0
+      with:
+        api-url: http://localhost:8080
+        api-token: key1
+        store-id: ${{ env.STORE_ID }}
+        format: json
+        model: '{\"schema_version\":\"1.1\",\"type_definitions\":\[\{\"type\":\"user\"\},\{\"type\":\"document\",\"relations\":\{\"reader\":\{\"this\":\{\}\},\"writer\":\{\"this\":\{\}\},\"owner\":\{\"this\":\{\}\}\},\"metadata\":\{\"relations\":\{\"reader\":\{\"directly_related_user_types\":\[\{\"type\":\"user\"\}\]\},\"writer\":\{\"directly_related_user_types\":\[\{\"type\":\"user\"\}\]\},\"owner\":\{\"directly_related_user_types\":\[\{\"type\":\"user\"\}\]\}\}\}\}\]\}'
