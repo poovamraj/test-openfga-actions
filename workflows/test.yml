@@ -1,0 +1,16 @@
+name: Test Action
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Run test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: OpenFGA Model Testing Action
+        uses: openfga/action-openfga-test@v0.1.0
+        with:
+          store-file-path: ./example/model.fga.yaml
