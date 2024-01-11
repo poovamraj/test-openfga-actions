@@ -26,7 +26,7 @@ tests:
       - user: user:anne
         object: folder:product-2021
         assertions:
-          can_view: true
+          can_view: false
           can_write: true
           can_share: false
       - user: user:beth
