@@ -3,7 +3,6 @@ name: 'OpenFGA Run Server'
 runs:
   using: composite
   steps:
-    - uses: actions/checkout@v4
     - uses: jaxxstorm/action-install-gh-release@v1.10.0
       with:
         repo: openfga/openfga
